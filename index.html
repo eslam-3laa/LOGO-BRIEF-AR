@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ملف تصميم الشعار</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;900&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <div id="formContainer">
+
+  <!-- مؤشر الخطوات -->
+  <div class="step-indicator" id="stepIndicator">
+    <div class="step-dot active" data-step="1">١</div>
+    <div class="step-line"></div>
+    <div class="step-dot" data-step="2">٢</div>
+    <div class="step-line"></div>
+    <div class="step-dot" data-step="3">٣</div>
+    <div class="step-line"></div>
+    <div class="step-dot" data-step="4">٤</div>
+  </div>
+
+  <!-- الصفحة الأولى: الرئيسية -->
+  <section class="page active" id="page1">
+    <div class="hero-sidebar">
+      <div class="sidebar-icon">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="12" r="4" stroke="#D4A017" stroke-width="2"/>
+          <circle cx="8" cy="30" r="4" stroke="#D4A017" stroke-width="2"/>
+          <circle cx="32" cy="30" r="4" stroke="#D4A017" stroke-width="2"/>
+          <line x1="20" y1="16" x2="8" y2="26" stroke="#D4A017" stroke-width="2"/>
+          <line x1="20" y1="16" x2="32" y2="26" stroke="#D4A017" stroke-width="2"/>
+          <line x1="8" y1="30" x2="32" y2="30" stroke="#D4A017" stroke-width="2"/>
+        </svg>
+      </div>
+      <span class="sidebar-text">ابنِ هويتك</span>
+    </div>
+
+    <div class="hero-card">
+      <div class="hero-content">
+        <div class="hero-tag">استبيان التصميم</div>
+        <h1 class="hero-title">
+          <span class="title-logo">ملف تصميم</span>
+          <span class="title-brief">الشعار</span>
+        </h1>
+        <p class="hero-subtitle">أكمل هذا الملف لمساعدتنا في تصميم الشعار المثالي لعلامتك التجارية.</p>
+        <button class="btn-start" onclick="goToPage(2)">
+          <span>ابدأ الآن</span>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12H19M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="hero-arrow" onclick="goToPage(2)">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="#D4A017" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+
+    <div class="hero-bg-text">شعار</div>
+  </section>
+
+  <!-- الصفحة الثانية: معلومات العميل + تفاصيل المشروع -->
+  <section class="page" id="page2">
+    <div class="page-layout">
+      <div class="page-left">
+        <div class="section-block">
+          <h2 class="section-title">معلومات <span>العميل</span></h2>
+          <div class="form-grid two-col">
+            <div class="field-group">
+              <label>اسم العميل</label>
+              <input type="text" id="clientName" placeholder="اسمك الكامل" required />
+            </div>
+            <div class="field-group">
+              <label>الموقع الإلكتروني</label>
+              <input type="text" id="website" placeholder="www.example.com" />
+            </div>
+            <div class="field-group">
+              <label>رقم الهاتف</label>
+              <input type="tel" id="phone" placeholder="+966 5X XXX XXXX" required />
+            </div>
+            <div class="field-group">
+              <label>البريد الإلكتروني</label>
+              <input type="email" id="email" placeholder="your@email.com" required />
+            </div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h2 class="section-title">تفاصيل <span>المشروع</span></h2>
+          <div class="form-grid one-col">
+            <div class="field-group">
+              <label>اسم المشروع</label>
+              <input type="text" id="projectName" placeholder="أدخل اسم المشروع" required />
+            </div>
+            <div class="field-group">
+              <label>نوع المشروع</label>
+              <select id="projectType" required>
+                <option value="" disabled selected>اختر نوع المشروع</option>
+                <option value="براند منتج">براند منتج</option>
+                <option value="براند شخصي">براند شخصي</option>
+                <option value="براند شركات">براند شركات</option>
+                <option value="براند تجاري">براند تجاري</option>
+                <option value="براند جغرافي">براند جغرافي</option>
+                <option value="براند خدمات">براند خدمات</option>
+                <option value="براند أونلاين">براند أونلاين</option>
+                <option value="براند أوفلاين">براند أوفلاين</option>
+                <option value="براند مشترك">براند مشترك</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label>الجمهور المستهدف</label>
+              <div class="checkbox-row">
+                <label class="check-item"><input type="checkbox" name="audience" value="أطفال" /><span class="checkmark"></span>أطفال</label>
+                <label class="check-item"><input type="checkbox" name="audience" value="شباب" /><span class="checkmark"></span>شباب</label>
+                <label class="check-item"><input type="checkbox" name="audience" value="رجال" /><span class="checkmark"></span>رجال</label>
+                <label class="check-item"><input type="checkbox" name="audience" value="نساء" /><span class="checkmark"></span>نساء</label>
+                <label class="check-item"><input type="checkbox" name="audience" value="الجميع" /><span class="checkmark"></span>الجميع</label>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label>الألوان المفضلة</label>
+              <input type="text" id="colours" placeholder="مثال: ذهبي، أسود، كحلي" />
+            </div>
+
+            <div class="field-group">
+              <label>نوع الشعار</label>
+              <div class="radio-row">
+                <label class="radio-item"><input type="radio" name="logoType" value="شعار أيقوني" /><span class="radiomark"></span>شعار أيقوني</label>
+                <label class="radio-item"><input type="radio" name="logoType" value="شعار حروفي" /><span class="radiomark"></span>شعار حروفي</label>
+                <label class="radio-item"><input type="radio" name="logoType" value="شعار خطي" /><span class="radiomark"></span>شعار خطي</label>
+                <label class="radio-item"><input type="radio" name="logoType" value="شعار شخصيات" /><span class="radiomark"></span>شعار شخصيات</label>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label>وصف المشروع</label>
+              <textarea id="aboutProject" rows="4" placeholder="صف مشروعك وأهدافك ورؤيتك..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-buttons">
+          <button class="btn-next" onclick="validateAndNext(2, 3)">التالي ←</button>
+          <button class="btn-back" onclick="goToPage(1)">→ رجوع</button>
+        </div>
+      </div>
+
+      <div class="page-right decorative-right">
+        <div class="deco-number">02</div>
+        <div class="deco-label">العميل والمشروع</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- الصفحة الثالثة: الرفع + الاستخدامات -->
+  <section class="page" id="page3">
+    <div class="page-layout">
+      <div class="page-left">
+
+        <div class="section-block">
+          <h2 class="section-title">ارفع <span>المراجع</span></h2>
+          <p class="section-sub">ارفع أي لوجو أعجبك أو اللوجو القديم</p>
+          <div class="upload-grid" id="uploadGrid">
+            <div class="upload-box" data-index="0" onclick="triggerUpload(0)">
+              <input type="file" accept="image/*" onchange="handleUpload(this, 0)" style="display:none" />
+              <div class="upload-placeholder">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>رفع</span>
+              </div>
+              <img class="upload-preview" src="" alt="" style="display:none" />
+              <button class="upload-remove" onclick="removeUpload(event, 0)" style="display:none">✕</button>
+            </div>
+            <div class="upload-box" data-index="1" onclick="triggerUpload(1)">
+              <input type="file" accept="image/*" onchange="handleUpload(this, 1)" style="display:none" />
+              <div class="upload-placeholder">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>رفع</span>
+              </div>
+              <img class="upload-preview" src="" alt="" style="display:none" />
+              <button class="upload-remove" onclick="removeUpload(event, 1)" style="display:none">✕</button>
+            </div>
+            <div class="upload-box" data-index="2" onclick="triggerUpload(2)">
+              <input type="file" accept="image/*" onchange="handleUpload(this, 2)" style="display:none" />
+              <div class="upload-placeholder">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>رفع</span>
+              </div>
+              <img class="upload-preview" src="" alt="" style="display:none" />
+              <button class="upload-remove" onclick="removeUpload(event, 2)" style="display:none">✕</button>
+            </div>
+            <div class="upload-box" data-index="3" onclick="triggerUpload(3)">
+              <input type="file" accept="image/*" onchange="handleUpload(this, 3)" style="display:none" />
+              <div class="upload-placeholder">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>رفع</span>
+              </div>
+              <img class="upload-preview" src="" alt="" style="display:none" />
+              <button class="upload-remove" onclick="removeUpload(event, 3)" style="display:none">✕</button>
+            </div>
+            <div class="upload-box" data-index="4" onclick="triggerUpload(4)">
+              <input type="file" accept="image/*" onchange="handleUpload(this, 4)" style="display:none" />
+              <div class="upload-placeholder">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>رفع</span>
+              </div>
+              <img class="upload-preview" src="" alt="" style="display:none" />
+              <button class="upload-remove" onclick="removeUpload(event, 4)" style="display:none">✕</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="two-col-grid">
+          <div class="section-block">
+            <h2 class="section-title">استخدامات <span>الشعار</span></h2>
+            <div class="checkbox-list">
+              <label class="check-item-row"><input type="checkbox" name="apps" value="كارت شخصي" /><span class="checkmark"></span>كارت شخصي</label>
+              <label class="check-item-row"><input type="checkbox" name="apps" value="ورق رسمي" /><span class="checkmark"></span>ورق رسمي</label>
+              <label class="check-item-row"><input type="checkbox" name="apps" value="ظرف" /><span class="checkmark"></span>ظرف</label>
+              <label class="check-item-row"><input type="checkbox" name="apps" value="ملف" /><span class="checkmark"></span>ملف</label>
+              <label class="check-item-row"><input type="checkbox" name="apps" value="رول أب" /><span class="checkmark"></span>رول أب</label>
+              <label class="check-item-row"><input type="checkbox" name="apps" value="سوشيال ميديا" /><span class="checkmark"></span>سوشيال ميديا</label>
+            </div>
+          </div>
+
+          <div class="section-block">
+            <h2 class="section-title">المعلومات <span>النهائية</span></h2>
+            <div class="field-group">
+              <label>الموعد النهائي</label>
+              <input type="date" id="deadline" required />
+            </div>
+            <div class="field-group">
+              <label>ميزانية المشروع</label>
+              <div class="radio-list">
+                <label class="radio-item-row"><input type="radio" name="budget" value="من 100 إلى 250 دولار" /><span class="radiomark"></span>من 100 إلى 250 دولار</label>
+                <label class="radio-item-row"><input type="radio" name="budget" value="من 250 إلى 500 دولار" /><span class="radiomark"></span>من 250 إلى 500 دولار</label>
+                <label class="radio-item-row"><input type="radio" name="budget" value="من 500 إلى 700 دولار" /><span class="radiomark"></span>من 500 إلى 700 دولار</label>
+                <label class="radio-item-row"><input type="radio" name="budget" value="من 700 إلى 1000 دولار" /><span class="radiomark"></span>من 700 إلى 1000 دولار</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-buttons">
+          <button class="btn-next" onclick="validateAndNext(3, 4)">التالي ←</button>
+          <button class="btn-back" onclick="goToPage(2)">→ رجوع</button>
+        </div>
+      </div>
+
+      <div class="page-right decorative-right">
+        <div class="deco-number">03</div>
+        <div class="deco-label">المراجع والتفاصيل</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- الصفحة الرابعة: النهائية -->
+  <section class="page" id="page4">
+    <div class="final-layout">
+      <div class="final-sidebar">
+        <div class="final-sidebar-inner">
+          <span class="final-sidebar-text">شكراً لك</span>
+        </div>
+      </div>
+
+      <div class="final-content">
+        <div class="final-summary" id="finalSummary">
+          <h2 class="summary-title">ملخص <span>الملف</span></h2>
+          <div class="summary-grid" id="summaryData"></div>
+        </div>
+
+        <div class="final-actions">
+          <button class="btn-send" onclick="generatePDF()">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            إرسال / PDF
+          </button>
+          <button class="btn-print" onclick="window.print()">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6v-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            طباعة
+          </button>
+        </div>
+
+        <div class="nav-buttons">
+          <button class="btn-back" onclick="goToPage(3)">→ رجوع</button>
+        </div>
+      </div>
+
+      <div class="final-deco">
+        <div class="deco-circle"></div>
+        <div class="deco-number">04</div>
+      </div>
+    </div>
+  </section>
+
+  </div><!-- /formContainer -->
+
+  <!-- إشعار التوست -->
+  <div class="toast" id="toast"></div>
+
+</body>
+</html>
